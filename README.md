@@ -22,11 +22,12 @@ La ville affichée est définie dans le fichier `config.json` à la racine du pr
   "city": "Paris",
   "country": "FR",
   "latitude": 48.8566,
-  "longitude": 2.3522
+  "longitude": 2.3522,
+  "unitSystem": "metric"
 }
 ```
 
-Modifiez ces valeurs pour changer la ville affichée.
+Modifiez ces valeurs pour changer la ville affichée et le système d'unités ("metric" ou "imperial").
 
 ## Installation
 
