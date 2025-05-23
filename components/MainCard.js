@@ -10,6 +10,8 @@ export const MainCard = ({
   unitSystem,
   weatherData,
 }) => {
+  console.log("weatherData:", weatherData);
+
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.location}>
@@ -17,8 +19,8 @@ export const MainCard = ({
       </h1>
       <p className={styles.description}>{description}</p>
       <Image
-        width="300px"
-        height="300px"
+        width={300}
+        height={300}
         src={`/icons/${iconName}.svg`}
         alt="weatherIcon"
       />

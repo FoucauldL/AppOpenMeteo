@@ -5,7 +5,7 @@ export const DateAndTime = ({ weatherData, unitSystem }) => {
   return (
     <div className={styles.wrapper}>
       <h2>
-        {`${getWeekDay(weatherData)}, ${getTime(
+        {`${getWeekDay(weatherData.dt)}, ${getTime(
           unitSystem,
           weatherData.dt,
           weatherData.timezone

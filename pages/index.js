@@ -20,17 +20,15 @@ export const App = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch("api/data", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cityInput }),
-      });
+      const res = await fetch("api/data");
       const data = await res.json();
       setWeatherData({ ...data });
-      setCityInput("");
     };
     getData();
-  }, [triggerFetch]);
+
+    const interval = setInterval(getData, 3600000);
+    return () => clearInterval(interval);
+  }, []);
 
   const changeSystem = () =>
     unitSystem == "metric"
@@ -43,26 +41,13 @@ export const App = () => {
         city={weatherData.name}
         country={weatherData.sys.country}
         description={weatherData.weather[0].description}
-        iconName={weatherData.weather[0].icon}
+        iconName={weatherData.weather[0].icon} // Ajout de la prop iconName
         unitSystem={unitSystem}
         weatherData={weatherData}
       />
       <ContentBox>
         <Header>
           <DateAndTime weatherData={weatherData} unitSystem={unitSystem} />
-          <Search
-            placeHolder="Search a city..."
-            value={cityInput}
-            onFocus={(e) => {
-              e.target.value = "";
-              e.target.placeholder = "";
-            }}
-            onChange={(e) => setCityInput(e.target.value)}
-            onKeyDown={(e) => {
-              e.keyCode === 13 && setTriggerFetch(!triggerFetch);
-              e.target.placeholder = "Search a city...";
-            }}
-          />
         </Header>
         <MetricsBox weatherData={weatherData} unitSystem={unitSystem} />
         <UnitSwitch onClick={changeSystem} unitSystem={unitSystem} />
