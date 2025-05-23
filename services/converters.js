@@ -42,3 +42,38 @@ export const unixToLocalTime = (unixSeconds, timezone) => {
   let time = match[0];
   return time.startsWith("0") ? time.substring(1) : time;
 };
+
+export const weatherCodeMap = {
+  0:  { desc: "Clear sky", icon: "01d" },
+  1:  { desc: "Mainly clear", icon: "02d" },
+  2:  { desc: "Partly cloudy", icon: "03d" },
+  3:  { desc: "Overcast", icon: "04d" },
+  45: { desc: "Fog", icon: "50d" },
+  48: { desc: "Depositing rime fog", icon: "50d" },
+  51: { desc: "Light drizzle", icon: "09d" },
+  53: { desc: "Moderate drizzle", icon: "09d" },
+  55: { desc: "Dense drizzle", icon: "09d" },
+  56: { desc: "Light freezing drizzle", icon: "09d" },
+  57: { desc: "Dense freezing drizzle", icon: "09d" },
+  61: { desc: "Slight rain", icon: "10d" },
+  63: { desc: "Moderate rain", icon: "10d" },
+  65: { desc: "Heavy rain", icon: "10d" },
+  66: { desc: "Light freezing rain", icon: "10d" },
+  67: { desc: "Heavy freezing rain", icon: "10d" },
+  71: { desc: "Slight snow fall", icon: "13d" },
+  73: { desc: "Moderate snow fall", icon: "13d" },
+  75: { desc: "Heavy snow fall", icon: "13d" },
+  77: { desc: "Snow grains", icon: "13d" },
+  80: { desc: "Slight rain showers", icon: "09d" },
+  81: { desc: "Moderate rain showers", icon: "09d" },
+  82: { desc: "Violent rain showers", icon: "09d" },
+  85: { desc: "Slight snow showers", icon: "13d" },
+  86: { desc: "Heavy snow showers", icon: "13d" },
+  95: { desc: "Thunderstorm", icon: "11d" },
+  96: { desc: "Thunderstorm with slight hail", icon: "11d" },
+  99: { desc: "Thunderstorm with heavy hail", icon: "11d" }
+};
+
+export function getWeatherDescriptionAndIcon(code) {
+  return weatherCodeMap[code] || { desc: `Weather code: ${code}`, icon: "01d" };
+}

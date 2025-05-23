@@ -10,8 +10,7 @@ export const MainCard = ({
   unitSystem,
   weatherData,
 }) => {
-  console.log("weatherData:", weatherData);
-
+  
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.location}>
@@ -32,7 +31,9 @@ export const MainCard = ({
       </h1>
       <p>
         Feels like{" "}
-        {unitSystem == "metric"
+        {weatherData.main.feels_like === null || weatherData.main.feels_like === undefined || isNaN(weatherData.main.feels_like)
+          ? "N/A"
+          : unitSystem == "metric"
           ? Math.round(weatherData.main.feels_like)
           : Math.round(ctoF(weatherData.main.feels_like))}
         °{unitSystem == "metric" ? "C" : "F"}

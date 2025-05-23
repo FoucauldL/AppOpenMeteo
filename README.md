@@ -1,47 +1,59 @@
 # Weather App
 
-Check the current weather on any city on the planet. Switch between metric and imperial units.
+Application météo Next.js utilisant l’API Open-Meteo.
 
-![Alt img](https://images.ctfassets.net/zlsyc9paq6sa/3uBrJ07WSM40FpolgjInHY/7d886cb4187b52194bf9b63c183a1d3a/1627637330_x.gif)
+![Screenshot](https://images.ctfassets.net/zlsyc9paq6sa/3uBrJ07WSM40FpolgjInHY/7d886cb4187b52194bf9b63c183a1d3a/1627637330_x.gif)
 
-## Features
+## Fonctionnalités
 
-1. User's ability to search cities
+- Affichage de la météo actuelle d’une ville préconfigurée (pas de recherche front)
+- Température, température ressentie, humidité, vent, visibilité, description, icône météo
+- Lever et coucher du soleil, date et heure locale
+- Changement d’unités (métrique/impérial)
+- Rafraîchissement automatique
+- Gestion des erreurs et affichage “N/A” si donnée manquante
 
-2. Current local time and date
+## Configuration
 
-3. Temperatures and humidity
+La ville affichée est définie dans le fichier `config.json` à la racine du projet :
 
-4. Wind speed and direction
+```json
+{
+  "city": "Paris",
+  "country": "FR",
+  "latitude": 48.8566,
+  "longitude": 2.3522
+}
+```
 
-5. Sunrise and sunset times
-
-6. Metric vs Imperial system
-
-7. Error handling and loading info
+Modifiez ces valeurs pour changer la ville affichée.
 
 ## Installation
 
-1. `git clone https://github.com/madzadev/weather-app.git`
+1. Clonez le dépôt :
+   ```sh
+   git clone <votre-url-github>
+   cd weather-app
+   ```
+2. Installez les dépendances :
+   ```sh
+   npm install
+   ```
+3. Lancez le serveur de développement :
+   ```sh
+   npm run dev
+   ```
+4. Ouvrez [http://localhost:3000](http://localhost:3000)
 
-2. `cd weather-app`
+## API utilisée
 
-3. `npm install`
+- [Open-Meteo](https://open-meteo.com/) (aucune clé API requise)
 
-4. Log-in to [Openweathermap.com](https://openweathermap.org/)
+## Personnalisation
 
-5. Create an API key
+- Les icônes météo sont dans `public/icons/`.
+- Les conversions d’unités et le mapping météo sont dans `services/`.
 
-6. `cp .env.example .env.local`
+## Licence
 
-7. Paste API key for `OPENWEATHER_API_KEY`
-
-8. `npm run dev`
-
-## Contributions
-
-Any feature requests and pull requests are welcome!
-
-## License
-
-The project is under [MIT license](https://choosealicense.com/licenses/mit/).
+Projet sous licence [MIT](https://choosealicense.com/licenses/mit/).
