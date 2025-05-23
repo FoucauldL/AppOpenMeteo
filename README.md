@@ -2,7 +2,7 @@
 
 Application météo Next.js utilisant l’API Open-Meteo.
 
-![Screenshot](https://images.ctfassets.net/zlsyc9paq6sa/3uBrJ07WSM40FpolgjInHY/7d886cb4187b52194bf9b63c183a1d3a/1627637330_x.gif)
+![Screenshot](public/screenshot.png)
 
 ## Fonctionnalités
 
