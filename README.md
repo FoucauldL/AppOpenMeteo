@@ -33,7 +33,7 @@ Modifiez ces valeurs pour changer la ville affichée et le système d'unités ("
 
 1. Clonez le dépôt :
    ```sh
-   git clone <votre-url-github>
+   git clone <git@github.com:FoucauldL/AppOpenMeteo.git>
    cd weather-app
    ```
 2. Installez les dépendances :
